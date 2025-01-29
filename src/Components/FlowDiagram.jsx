@@ -12,6 +12,12 @@ const App = () => {
       type: 'default',
     },
     {
+      id: '4',
+      position: { x: 450, y: 200 },
+      data: { label: 'Node 4' },
+      type: 'default',
+    },
+    {
       id: '2',
       position: { x: 100, y: 100 },
       data: { label: 'Node 2' },
@@ -28,6 +34,7 @@ const App = () => {
   const edges = [
     { id: 'e1-2', source: '1', target: '2' },
     { id: 'e1-3', source: '1', target: '3' },
+    { id: 'e1-4', source: '2', target: '4' },
   ];
 
   return (

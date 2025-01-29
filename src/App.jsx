@@ -11,13 +11,37 @@ import {
 } from "react-router-dom";
 
 function App() {
+  const[mode,setMode]=useState('info');
+  const toogleMode=()=>{
+    if(mode === 'info'){
+     setMode('dark')
+    //  document.body.style.backgroundColor="#042743";
+    document.body.style.backgroundColor="#042743";
+    
+    }
+    else{
+     setMode('info')
+    //  document.body.style.backgroundColor="white"
+     document.body.style.backgroundColor="white"
+    }
+ }
+ const [img,setImg]=useState('mongodb.png');
+ const setImage = () => {
+   setImg('devops.png')
+   document.body.style.backgroundImage='devops.png';
+   console.log(`url(${img})`)
+ }
+ const [color,setColor]=useState('#ffffff');  
+  function updatedColor(event) {
+    setColor(event.target.value)
+   document.body.style.backgroundColor=color;
+  }
   
-
   return (
     <>
-     <div style={{ backgroundColor:' #042743', height: '100vh' }}>
+     <div >
     <Router>
-      <Navbar />
+      <Navbar mode={mode} toogleMode={toogleMode} color={color} updatedColor={updatedColor}  img={img} setImage={setImage}/>
       <Routes>
       <Route path="/" element={<Carts />} />
       <Route path="/history" element={<History  />} />
